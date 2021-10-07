@@ -1,8 +1,9 @@
 package com.example.githubdemo.api
 
-import com.example.githubdemo.util.AppConstants
 import com.example.githubdemo.BuildConfig
 import com.example.githubdemo.model.Repo
+import com.example.githubdemo.model.SearchResult
+import com.example.githubdemo.util.AppConstants
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -49,12 +50,21 @@ interface APIService {
     // to keep the UI thread unblocked while long lasting operations
     @GET("repositories")
     suspend fun getTrendingRepos(
-        @Query("q") keyword: String = "",
+        @Query("q") keyword: String = " ",
         @Query("sort") sort: String = AppConstants.QUERY_SORT,
         @Query("order") order: String = AppConstants.QUERY_ORDER,
         @Query("per_page") per_page: Int = AppConstants.PAGE_SIZE,
         @Query("page") page: Int = 1
     ): Response<List<Repo>>
+
+    @GET("search/repositories")
+    suspend fun getSearchResults(
+        @Query("q") keyword: String = "android",
+        @Query("sort") sort: String = AppConstants.QUERY_SORT,
+        @Query("order") order: String = AppConstants.QUERY_ORDER,
+        @Query("per_page") per_page: Int = AppConstants.PAGE_SIZE,
+        @Query("page") page: Int = 1
+    ): Response<SearchResult>
 
     @GET("repositories")
     suspend fun getRepoDetail(): Response<Repo>

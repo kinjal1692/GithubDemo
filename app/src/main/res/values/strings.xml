@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">GithubDemo</string>
     <string name="lbl_retry">Retry</string>
+    <string name="lbl_created_by">Created by:</string>
 </resources>

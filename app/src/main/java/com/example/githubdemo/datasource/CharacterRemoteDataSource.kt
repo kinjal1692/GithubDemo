@@ -12,4 +12,7 @@ class RepoRemoteDataSource @Inject constructor(
 
     suspend fun getRepos() =
         getResult { characterService.getTrendingRepos() }
+
+    suspend fun getSearchResult() =
+        getResult { characterService.getSearchResults() }
 }

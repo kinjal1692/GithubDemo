@@ -7,17 +7,17 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.githubdemo.model.Owner
-import com.example.githubdemo.model.Repo
+import com.example.githubdemo.model.*
 
-@TypeConverters(OwnerTypeConverters::class)
+@TypeConverters(OwnerTypeConverters::class, ItemTypeConverters::class, LicenseTypeConverters::class)
 @Database(
-    entities = [Repo::class,
-        Owner::class],
+    entities = [Repo::class, Owner::class, SearchResult::class,
+        Item::class, License::class],
     version = 1,
     exportSchema = false
 )
-abstract class GithubDatabase() : RoomDatabase() {
+
+abstract class GithubDatabase : RoomDatabase() {
 
     abstract fun repoDao(): RepoDao
 

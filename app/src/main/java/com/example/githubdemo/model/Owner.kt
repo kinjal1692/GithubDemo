@@ -7,56 +7,56 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "Owner")
 data class Owner(
-    var login: String?,
+    var login: String? = "",
 
     @PrimaryKey
-    var id: Long,
+    var id: Long = 0L,
 
     @SerializedName("node_id")
-    var nodeID: String?,
+    var nodeID: String? = "",
 
     @SerializedName("avatar_url")
-    var avatarURL: String?,
+    var avatarURL: String? = "",
 
     @SerializedName("gravatar_id")
-    var gravatarID: String?,
+    var gravatarID: String? = "",
 
-    var url: String?,
+    var url: String? = "",
 
     @SerializedName("html_url")
-    var htmlURL: String?,
+    var htmlURL: String? = "",
 
     @SerializedName("followers_url")
-    var followersURL: String?,
+    var followersURL: String? = "",
 
     @SerializedName("following_url")
-    var followingURL: String?,
+    var followingURL: String? = "",
 
     @SerializedName("gists_url")
-    var gistsURL: String?,
+    var gistsURL: String? = "",
 
     @SerializedName("starred_url")
-    var starredURL: String?,
+    var starredURL: String? = "",
 
     @SerializedName("subscriptions_url")
-    var subscriptionsURL: String?,
+    var subscriptionsURL: String? = "",
 
     @SerializedName("organizations_url")
-    var organizationsURL: String?,
+    var organizationsURL: String? = "",
 
     @SerializedName("repos_url")
-    var reposURL: String?,
+    var reposURL: String? = "",
 
     @SerializedName("events_url")
-    var eventsURL: String?,
+    var eventsURL: String? = "",
 
     @SerializedName("received_events_url")
-    var receivedEventsURL: String?,
+    var receivedEventsURL: String? = "",
 
-    var type: String?,
+    var type: String? = "",
 
     @SerializedName("site_admin")
-    var siteAdmin: Boolean
+    var siteAdmin: Boolean = false
 ) {
     companion object {
         @Ignore
